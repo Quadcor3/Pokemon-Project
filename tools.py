@@ -7,11 +7,16 @@ def waitdot(howmanydot):
     sleep(1)
 
 class saldirilistesi():
-    
-    def __init__(self, Sismi):
-        self.Sismi=Sismi
-        self.saldiril=[]
-        self.ekleme()
 
-    def ekleme(self):
-        self.saldiril.append(self.Sismi)
+    def __init__(self):
+        self.saldiril=[]
+
+    def ekleme(self, y):
+        x=input("{} icin 1. saldiriyi girin".format(y))
+        self.saldiril.append(x)
+        x=input("{} icin 2. saldiriyi girin".format(y))
+        x=self.saldiril.append(x)
+        x=input("{} icin 3. saldiriyi girin".format(y))
+        self.saldiril.append(x)
+        x=input("{} icin 4. saldiriyi girin".format(y))
+        self.saldiril.append(x)

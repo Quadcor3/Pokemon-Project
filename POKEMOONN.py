@@ -1,6 +1,6 @@
 import random
 import sys
-import tools
+from tools import *
 import saldiri
 
 
@@ -41,16 +41,17 @@ def attmove(whosturn, whosturnpoke, comhealth, phealth):
 
 
 def starting():
-    player=input("Choose your pokemon:\n")
+    playerP=input("Choose your pokemon:\n")
+    startingwhos=playerP
     print("Saldirilarini seçme vakti: ")
-    x=input("1. saldırı: ")
-    playerL=tools.saldirilistesi(x)
+    player=saldirilistesi()
+    player.ekleme(startingwhos)
+    print(player.saldiril)
     comhealth=100
     phealth=100
     whosturn="player"
-    #attmove(whosturn, whosturnpoke, comhealth, phealth)
+    return player.saldiril
 
-starting()
-print(playerL.saldiril)
+playersaldirilari=starting()
 
 
