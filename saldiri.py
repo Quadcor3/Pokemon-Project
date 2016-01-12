@@ -3,6 +3,10 @@ import random
 damage=0
 fail=0
 
+
+saldirilar=['flame']
+
+
 def flame():
     global damage
     global fail
@@ -11,3 +15,4 @@ def flame():
     burn=random.randint(1, 10)  #???
     print("fonksiyon calisti")
 
+def 

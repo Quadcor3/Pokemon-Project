@@ -1,7 +1,10 @@
 import random
-import sys
 from tools import *
 import saldiri
+
+
+comhealth=100
+phealth=100
 
 
 def flamethrower(whosturn):
@@ -23,12 +26,11 @@ def flamethrower(whosturn):
 
 
 
-
 def attmove(whosturn, whosturnpoke, comhealth, phealth):
     att=input("Yapacağın saldırıyı gir:\n")
-    print("{} used {}!".format(whosturnpoke, att))    #saldırıyı ekle
-    getattr(saldiri, att)()                           #fonksiyonu çağırıyor mu belli değil araştır
-    tools.waitdot(3)
+    print("{} used {}!".format(whosturnpoke, att))
+    getattr(saldiri, att)()
+    waitdot(3)
     if saldiri.fail==1:
         print("But it failed!")
     elif whosturn is "computer":
@@ -42,16 +44,22 @@ def attmove(whosturn, whosturnpoke, comhealth, phealth):
 
 def starting():
     playerP=input("Choose your pokemon:\n")
-    startingwhos=playerP
     print("Saldirilarini seçme vakti: ")
     player=saldirilistesi()
-    player.ekleme(startingwhos)
-    print(player.saldiril)
-    comhealth=100
-    phealth=100
-    whosturn="player"
+    player.ekleme(playerP)
     return player.saldiril
 
+def choosenemy():
+    comP=input("Choose the enemy pokemon:\n")
+    print("Choose the enemy moves:")               #Random hale getirilebilir!
+    player=saldirilistesi()
+    player.ekleme(comP)
+    return player.saldiril
+
+
+
+print("Introduction...")
+sleep(2)
 playersaldirilari=starting()
-
-
+comsaldirilari=choosenemy()
+print(playersaldirilari, comsaldirilari)
