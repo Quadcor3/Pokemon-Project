@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="config.py" />
+    <Compile Include="istihza oyunu.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POKEMOONN.py" />
     <Compile Include="saldiri.py" />
     <Compile Include="tools.py" />
