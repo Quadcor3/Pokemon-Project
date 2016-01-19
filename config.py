@@ -10,7 +10,7 @@ class oyuncu():
     def __init__(self, isim, health=100):
         self.health=health
         self.pokename=isim
-        self.poketype=input("Which of the following type is your Pokemon's?\nwater, fire, \n")   ## Typelarý devam ettir ekledikçe!!
+        self.poketype=input("Which of the following type is your Pokemon's?\nwater, fire, \n")   ## Typelarï¿½ devam ettir ekledikï¿½e!!
         self.saldiril=[]
         self.status=[]                        ## Bu da denemede
         print("oyuncu eklendi")
