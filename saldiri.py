@@ -1,15 +1,15 @@
 import random
 
 
-saldirilar={'flame': 'fire', 'recovery': 'normal', 'bubble': 'water', 'stomp': 'earth'}
-types={'water', 'fire'}
+saldirilar={'flame': 'fire', 'recovery': 'normal', 'bubble': 'water', 'stomp': 'earth', 'psychic': 'psychic'}
+types=['water', 'fire', 'psychic']
 
 
 
 
 def flame():
     global damage, fail, dam, burn
-    damage=random.randint(20, 38)
+    damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 5)  #???
     dam=1
@@ -36,3 +36,9 @@ def stomp():
     fail=random.randint(1, 5)
     dam=1
     paralyze=random.randint(1, 4)
+
+def psychic():
+    global damage, fail, dam
+    damage=random.randint(30, 35)
+    fail=random.randint(1, 4)
+    dam=1

@@ -11,20 +11,23 @@ class oyuncu():
         self.pokename=isim
         poketypebelirle()
         self.saldiril=[]
-        self.status=[]                        ## Bu da denemede
-        print("oyuncu eklendi")
+        self.status=[]                        # Bu da denemede
+        print("oyuncu eklendi")            #En son silinecek
 
-    def poketypebelirle(self):      # For player
+    def poketypebelirle(self):      # For player and com
         if self=='player':
             self.poketype=input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types))   ## Typeları devam ettir ekledikçe!!
-        elif self=='rakip':
+        elif self=='com':
             self.poketype=random.choice(saldiri.types)
             print("Your opponent is a {} type pokemon.".format(self.poketype))
 
 
-    def attmove(self, karsi):     # For player
+    def attmove(self, karsi):     # For player -- com icin ekleme çalışması!! --
         while True:
-            att=input("What is your move?: ")
+            if self=="player":
+                att=input("What is your move?: ")
+            elif self=="com":
+                att=random.choice     ##raastgele nasi saldiri eklenecek düsün! --- Simdilik belli basli olsun sonra eklicem!!
             if att in player.saldiril:
                 getattr(saldiri, att)()
                 break
@@ -41,7 +44,7 @@ class oyuncu():
         if saldiri.fail==1:
             print("But it failed!")
         else:
-            statuseff()
+            self.statuseff()
             karsi.health-=saldiri.damage
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
 
@@ -56,7 +59,6 @@ class oyuncu():
                 print("All status effects has been healed!")
             print("{} have been healed for {} health".format(self.pokename, saldiri.heal))
         
-
     
     def ekleme(self):           # For player
         for i in range(1, 5):
@@ -83,21 +85,27 @@ class oyuncu():
 
 
 
-pokemonismi=input("Pokemonunuzun ismi:\n")
-player=oyuncu(pokemonismi)
+#pokemonismi=input("Pokemonunuzun ismi:\n")
+#player=oyuncu(pokemonismi)
 #rakip_pokemon=input("rakip poke isim: ")
 #com=oyuncu(rakip_pokemon)
-player.ekleme()
+#player.ekleme()
 #checkstatus()  ##??
-player.attmove(com)
+#player.attmove(com)
 
 def start():
     pokemonismi=input("Pokemonunuzun ismi:\n")
     player=oyuncu(pokemonismi)
-    rakip_pokemon=input("rakip poke isim: ")
+    player.poketypebelirle()
+    rakip_pokemon=input("Rakip poke isim: ")
+    com=oyuncu(rakip_pokemon)
+    com.poketypebelirle()
+
+def turns():
+    d
 
 
-    
+
 
 
 
