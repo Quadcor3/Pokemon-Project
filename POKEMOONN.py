@@ -14,7 +14,7 @@ class oyuncu():
         print("oyuncu eklendi")            #En son silinecek
 
     def poketypebelirle(self):      # For player
-        self.poketype=input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types))   ## Typeları devam ettir ekledikçe!!
+        self.poketype=input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types))
 
     def compoketypebelirle(self):
         self.poketype=random.choice(saldiri.types)
@@ -172,13 +172,20 @@ while player.health or com.health >0:
     print("Your turn!!")
     player.attmove('player', com)
     player.checkstatus()
-    print("Opponent's turn...")
-    waitdot(2)
-    com.attmove('com', player)
-    com.checkstatus()
-    sleep(2)
+    if com.health >0:
+        print("Opponent's turn...")
+        waitdot(2)
+        com.attmove('com', player)
+        com.checkstatus()
+        sleep(2)
+
+
+if player.health <=0:
+    print("{} you has been defeated!".format(player.pokename))
+
+if com.health <=0:
+    print("{} you has been defeated!".format(com.pokename))
 
 
 
-
-#Oyuı sonunu yapmaya basla hareket eklemek ve test var....... farkli hareket bulunup eklenebilir ama kodun icine edecek gibi
+#Oyun sonunu yapmaya basla hareket eklemek ve test var....... farkli hareket bulunup eklenebilir ama kodun icine edecek gibi

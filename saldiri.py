@@ -10,6 +10,7 @@ burn=0
 sleep=0
 heal=0
 block=0
+statusheal=0
 
 def flame():
     global damage, fail, dam, burn
@@ -17,7 +18,6 @@ def flame():
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)  #???
     dam=1
-    print("fonksiyon calisti")
 
 def recovery():
     global heal, fail, statusheal, dam
@@ -25,14 +25,12 @@ def recovery():
     fail=random.randint(1, 3)
     statusheal=random.randint(1, 5) ## Karşındaki pokemona göre farklı heal seçtirilebilir ya da direk allheal olur
     dam=0
-    print("fonksiyon calisti")
 
 def bubble():
     global damage, fail, dam
     damage=random.randint(15, 25)
     fail=random.randint(1, 8)
     dam=1
-    print("fonksiyon calisti")
 
 def stomp():
     global paralyze, damage, fail, dam
