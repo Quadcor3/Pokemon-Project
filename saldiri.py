@@ -1,7 +1,7 @@
 import random
 
 
-saldirilar={'flame': 'fire', 'recovery': 'normal', 'bubble': 'water', 'stomp': 'ground', 'psychic': 'psychic', 'ember': 'fire', 'inferno': 'fire', 'hypnosis': 'psychic', 'psybeam': 'psychic', 'stunspore': 'normal'}
+saldirilar={'flame': 'fire', 'recovery': 'normal', 'bubble': 'water', 'stomp': 'ground', 'psychic': 'psychic', 'ember': 'fire', 'inferno': 'fire', 'hypnosis': 'psychic', 'psybeam': 'psychic', 'stunspore': 'normal', 'blizzard': 'water'}
 types=['water', 'fire', 'psychic', 'ground']
 
                                                      ##Perish Song???
@@ -47,15 +47,17 @@ def psychic():
 
 def ember():
     global damage, fail, dam, burn
-    damage=random.randint(10, 15)
-    fail=random.randint(1, 5)
+    damage=random.randint(10, 20)
+    fail=random.randint(1, 6)
     burn=random.randint(1, 3)
     dam=1
 
 def inferno():
     global damage, fail, dam, burn
-    damage=random.randint(20, 25)
-    fail=random.randint(1, 2)
+    damage=random.randint(15, 25)
+    fail=random.randint(1, 3)             # 1/2 X 2/3 den 1/3 olasılık oldu
+    if fail==2 or fail==3:
+        fail=random.randint(1, 2)
     burn=1
     dam=1
 
@@ -78,3 +80,10 @@ def stunspore():
     fail=random.randint(1, 3)
     dam=2
     paralyze=1
+
+def blizzard():
+    global fail, dam, damage, freeze
+    fail=random.randint(1, 3)
+    damage=random.randint(15, 25)
+    dam=1
+    freeze=random.randint(1, 4)

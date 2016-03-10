@@ -33,6 +33,7 @@ class oyuncu():
             else:
                 print("Select a valid move!")
                 sleep(1)
+        self.checkstatus()
         self.checkblock()
         if saldiri.block==0:
             print("{} used {}!".format(self.pokename, att))
@@ -64,16 +65,20 @@ class oyuncu():
                 print("All status effects has been healed!")      #status heal pek mantikli degil?
             
     
-    def ekleme(self):           # For player ----- ENSON ->ayni saldiriyi iki kere secememe yap
+    def ekleme(self):           # For player ----- ENSON ->ayni saldiriyi iki kere secememe yap---- Yapıldı!!
         for i in range(1, 5):
             while True:
                 x=input("{} icin {}. saldiriyi girin".format(self.pokename, i))
                 if x in saldiri.saldirilar:
-                    if saldiri.saldirilar[x] in self.poketype or saldiri.saldirilar[x] is 'normal':
+                    if x in self.saldiril:
+                        print("You can't select the same move.")
+                    elif saldiri.saldirilar[x] in self.poketype or saldiri.saldirilar[x] is 'normal':
                         self.saldiril.append(x)
                         break
                     else:
                         print("You can't select that move")
+                else:
+                    print("There is no such move!")
 
     def comekleme(self):
         for i in range(1, 5):
@@ -100,6 +105,10 @@ class oyuncu():
             self.status.append('sleep')
             print("{} fell asleep!".format(self.pokename))
             saldiri.sleep=0
+        if saldiri.freeze==1:
+            self.status.clear()
+            self.status.append('freeze')
+            print("{} is frozen solid! It can't move!".format(self.pokename))
 
     def checkstatus(self):
         if self.status is "burn":
@@ -122,30 +131,36 @@ class oyuncu():
                 print("{} is still paralyzed!".format(self.pokename))
                 sleep(1)
         if self.status is "sleep":
-            sleepbreak=random.randint(1, 2)
+            sleepbreak=random.randint(1, 3)
             if sleepbreak==1:
                 print("{} is awake!".format(self.pokename))
                 self.status.clear()
                 sleep(1)
+        if self.status is "freeze":
+            thawout=random.randint(1, 5)
+            if thawout==1:
+                print("{} is thawed out of frozen!".format(self.pokename))
+                self.status.clear()
+                sleep(1)
             else:
-                print("{} is still sleeping".format(self.pokename))
+                print("{} is still frozen solid.".format(self.pokename))
                 sleep(1)
     
-    def checkblock(self):                        #1 de 3 olasiliginda paralyze ken saldiramaz degistirilebilir
+    def checkblock(self):                        #1 de 3 olasiliginda paralyze ken saldirabilir degistirilebilir
         abletoatt=0
-        abletoattsleep=0
         if self.status is "paralyze":
             abletoatt=random.randint(1, 3)
             print("{} is paralyzed!".format(self.pokename))
         elif self.status is "sleep":
-            abletoattsleep=1
+            print("{} is fast asleep.\n'ZZZZZZZZZ'".format(self.pokename))
+            saldiri.block=1
+        elif self.status is "freeze":
+            print("It can't move.")
+            saldiri.block=1
         else:
             saldiri.block=0
         if abletoatt==1 or abletoatt==2:
             print("{} is paralyzed!\nIt can't move!".format(self. pokename))
-            saldiri.block=1
-        if abletoattsleep==1:
-            print("{} is fast asleep.\n'ZZZZZZZZZ'".format(self.pokename))
             saldiri.block=1
 
             
@@ -168,15 +183,13 @@ com=oyuncu(rakip_pokemon)
 com.compoketypebelirle()
 com.comekleme()
 
-while player.health or com.health >0:
+while player.health or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
     print("Your turn!!")
     player.attmove('player', com)
-    player.checkstatus()
     if com.health >0:
         print("Opponent's turn...")
         waitdot(2)
         com.attmove('com', player)
-        com.checkstatus()
         sleep(2)
 
 
@@ -188,4 +201,4 @@ if com.health <=0:
 
 
 
-#Oyun sonunu yapmaya basla hareket eklemek ve test var....... farkli hareket bulunup eklenebilir ama kodun icine edecek gibi
+#Oyun sonunu yapmaya basla hareket eklemek ve test var.......
