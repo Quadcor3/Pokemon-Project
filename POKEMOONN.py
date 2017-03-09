@@ -15,11 +15,14 @@ class oyuncu():
 
     def poketypebelirle(self):      # For player
         x=str.lower(input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types)))  #Hata var if le seçmeyi sınırla  -  lowercase yapıldı
-        if x in saldiri.types:
-             print("Type accepted.")
-        else:
-             print("Pokemon type unknown.")
-
+        While   True
+            if x in saldiri.types:
+                print("Type accepted.")
+                self.poketype.append(x)
+                break
+            else:
+                print("Pokemon type unknown.")
+                
     def compoketypebelirle(self):
         self.poketype=random.choice(saldiri.types)
         print("Your opponent is a {} type pokemon.".format(self.poketype))
