@@ -14,7 +14,7 @@ class oyuncu():
         print("oyuncu eklendi")            #En son silinecek
 
     def poketypebelirle(self):      # For player
-        self.poketype=input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types))  #Hata var if le seçmeyi sınırla
+        self.poketype=str.lower(input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types)))  #Hata var if le seçmeyi sınırla  -  lowercase yapıldı
 
     def compoketypebelirle(self):
         self.poketype=random.choice(saldiri.types)
@@ -69,7 +69,7 @@ class oyuncu():
     def ekleme(self):           # For player ----- ENSON ->ayni saldiriyi iki kere secememe yap---- Yapıldı!!
         for i in range(1, 5):
             while True:
-                x=input("{} icin {}. saldiriyi girin\n".format(self.pokename, i))
+                x=str.lower(input("{} icin {}. saldiriyi girin\n".format(self.pokename, i)))
                 if x in saldiri.saldirilar:
                     if x in self.saldiril:
                         print("You can't select the same move.")
