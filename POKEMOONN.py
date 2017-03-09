@@ -15,7 +15,7 @@ class oyuncu():
 
     def poketypebelirle(self):      # For player
         x=str.lower(input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types)))  #Hata var if le seçmeyi sınırla  -  lowercase yapıldı
-        While   True
+        While True:
             if x in saldiri.types:
                 print("Type accepted.")
                 self.poketype.append(x)
