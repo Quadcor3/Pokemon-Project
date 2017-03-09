@@ -42,7 +42,7 @@ class oyuncu():
             elif saldiri.dam==0:
                 self.attheal()
             elif saldiri.dam==2:
-                self.statuseff()
+                karsi.statuseff()
             
     def attdamage(self, karsi):   #for both
         waitdot(3)

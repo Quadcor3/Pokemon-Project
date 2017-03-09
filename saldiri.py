@@ -33,21 +33,21 @@ def flamethrower():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
-    burn=random.randint(1, 6)  #???
+    burn=random.randint(1, 6)
     dam=1
 
 def overheat():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
-    burn=random.randint(1, 6)  #???
+    burn=random.randint(1, 6)
     dam=1
 
 def ember():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
-    burn=random.randint(1, 6)  #???
+    burn=random.randint(1, 6)
     dam=1
 
 def recovery():
