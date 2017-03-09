@@ -29,7 +29,7 @@ def flame():
     burn=random.randint(1, 6)  #???
     dam=1
 
-def fire blast():
+def fireblast():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
