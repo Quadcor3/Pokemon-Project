@@ -14,8 +14,8 @@ class oyuncu():
         print("oyuncu eklendi")            #En son silinecek
 
     def poketypebelirle(self):      # For player
-        while True:
-            x=str.lower(input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types)))  #Hata var if le seçmeyi sınırla  -  lowercase yapıldı
+        x=str.lower(input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types)))  #Hata var if le seçmeyi sınırla  -  lowercase yapıldı
+        While True:
             if x in saldiri.types:
                 print("Type accepted.")
                 self.poketype = x
