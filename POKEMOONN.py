@@ -121,7 +121,7 @@ class oyuncu():
 
     def checkstatus(self):
         if "burn" in self.status:
-            burnbreak=random.randint(1, 5)               # 1 de 5 kurtulma olasiligi fazla mi?
+            burnbreak=random.randint(1, 2)               # 1 de 5 kurtulma olasiligi fazla mi?  Kurtulma olasılığı ayarla azaltıldı!
             if burnbreak==1:
                 print("{} is no longer burnt!".format(self.pokename))
                 self.status.clear()
