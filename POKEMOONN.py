@@ -69,7 +69,7 @@ class oyuncu():
     def ekleme(self):           # For player ----- ENSON ->ayni saldiriyi iki kere secememe yap---- Yapıldı!!
         for i in range(1, 5):
             while True:
-                x=input("{} icin {}. saldiriyi girin".format(self.pokename, i))
+                x=input("{} icin {}. saldiriyi girin\n".format(self.pokename, i))
                 if x in saldiri.saldirilar:
                     if x in self.saldiril:
                         print("You can't select the same move.")
