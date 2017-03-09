@@ -48,6 +48,7 @@ class oyuncu():
         waitdot(3)
         if saldiri.fail==1:
             print("But it failed!")
+            saldiri.reseteffs()
         else:
             karsi.health-=saldiri.damage
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
@@ -109,6 +110,7 @@ class oyuncu():
             self.status.clear()
             self.status.append('freeze')
             print("{} is frozen solid! It can't move!".format(self.pokename))
+            saldiri.freeze=0
 
     def checkstatus(self):
         if self.status is "burn":
@@ -183,7 +185,7 @@ com=oyuncu(rakip_pokemon)
 com.compoketypebelirle()
 com.comekleme()
 
-while player.health or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
+while player.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
     print("Your turn!!")
     player.attmove('player', com)
     if com.health >0:

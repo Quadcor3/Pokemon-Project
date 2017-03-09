@@ -11,6 +11,16 @@ sleep=0
 heal=0
 block=0
 statusheal=0
+freeze=0
+
+def reseteffs():
+    paralyze=0
+    burn=0
+    sleep=0
+    heal=0
+    block=0
+    statusheal=0
+    freeze=0
 
 def flame():
     global damage, fail, dam, burn
