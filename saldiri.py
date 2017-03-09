@@ -1,7 +1,7 @@
 import random
 
 
-saldirilar={'flame': 'fire', 'recovery': 'normal', 'bubble': 'water', 'stomp': 'ground', 'psychic': 'psychic', 'ember': 'fire', 'inferno': 'fire', 'hypnosis': 'psychic', 'psybeam': 'psychic', 'stunspore': 'normal', 'blizzard': 'water'}
+saldirilar={'flame': 'fire','fire blast': 'fire','ember': 'fire','overheat': 'fire', 'recovery': 'normal', 'bubble': 'water', 'stomp': 'ground', 'psychic': 'psychic', 'ember': 'fire', 'inferno': 'fire', 'hypnosis': 'psychic', 'psybeam': 'psychic', 'stunspore': 'normal', 'blizzard': 'water'}
 types=['water', 'fire', 'psychic', 'ground']
 
                                                      ##Perish Song???
@@ -23,6 +23,27 @@ def reseteffs():
     freeze=0
 
 def flame():
+    global damage, fail, dam, burn
+    damage=random.randint(20, 28)
+    fail=random.randint(1, 5)
+    burn=random.randint(1, 6)  #???
+    dam=1
+
+def fire blast():
+    global damage, fail, dam, burn
+    damage=random.randint(20, 28)
+    fail=random.randint(1, 5)
+    burn=random.randint(1, 6)  #???
+    dam=1
+
+def overheat():
+    global damage, fail, dam, burn
+    damage=random.randint(20, 28)
+    fail=random.randint(1, 5)
+    burn=random.randint(1, 6)  #???
+    dam=1
+
+def ember():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
