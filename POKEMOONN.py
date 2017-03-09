@@ -120,7 +120,7 @@ class oyuncu():
             saldiri.freeze=0
 
     def checkstatus(self):
-        if self.status is "burn":
+        if "burn" in self.status:
             burnbreak=random.randint(1, 5)               # 1 de 5 kurtulma olasiligi fazla mi?
             if burnbreak==1:
                 print("{} is no longer burnt!".format(self.pokename))
@@ -130,7 +130,7 @@ class oyuncu():
                 burndamage=random.randint(5, 15)
                 self.health-=burndamage
                 print("{} is hurt by its burn!\nTook {} damage!".format(self.pokename, burndamage))
-        if self.status is "paralyze":
+        if "paralyze" in self.status:
             paralyzebreak=random.randint(1, 3)                  #paralyze den kurtulma sansi 1 de 3
             if paralyzebreak==1:
                 print("{} is no longer paralyzed!".format(self.pokename))
@@ -139,13 +139,13 @@ class oyuncu():
             else:
                 print("{} is still paralyzed!".format(self.pokename))
                 sleep(1)
-        if self.status is "sleep":
+        if "sleep" in self.status:
             sleepbreak=random.randint(1, 3)
             if sleepbreak==1:
                 print("{} is awake!".format(self.pokename))
                 self.status.clear()
                 sleep(1)
-        if self.status is "freeze":
+        if "freeze" in self.status:
             thawout=random.randint(1, 5)
             if thawout==1:
                 print("{} is thawed out of frozen!".format(self.pokename))
