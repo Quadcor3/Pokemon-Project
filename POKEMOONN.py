@@ -14,7 +14,7 @@ class oyuncu():
         print("oyuncu eklendi")            #En son silinecek
 
     def poketypebelirle(self):      # For player
-        self.poketype=input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types))
+        self.poketype=input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types))  #Hata var if le seçmeyi sınırla
 
     def compoketypebelirle(self):
         self.poketype=random.choice(saldiri.types)
@@ -28,7 +28,7 @@ class oyuncu():
             if yapan=="com":
                 att=random.choice(self.saldiril)
             if att in self.saldiril:
-                getattr(saldiri, att)()
+                getattr(saldiri, att)()   #saldiri.(kullanıcı inputu)  yapmaya yarıyo
                 break
             else:
                 print("Select a valid move!")
@@ -77,7 +77,7 @@ class oyuncu():
                         self.saldiril.append(x)
                         break
                     else:
-                        print("You can't select that move")
+                        print("You can't select that type of move!")
                 else:
                     print("There is no such move!")
 
