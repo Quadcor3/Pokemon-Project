@@ -9,16 +9,15 @@ paralyze=0
 burn=0
 sleep=0
 heal=0
-block=0
 statusheal=0
 freeze=0
 
 def reseteffs():
+    global paralyze, burn, sleep, heal, statusheal, freeze
     paralyze=0
     burn=0
     sleep=0
     heal=0
-    block=0
     statusheal=0
     freeze=0
 

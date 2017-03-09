@@ -2,7 +2,7 @@ import random
 from tools import *
 import saldiri
 
-
+block=0
 
 class oyuncu():
 
@@ -102,22 +102,22 @@ class oyuncu():
             self.status.clear()
             self.status.append('burn')
             print("{} is burnt!".format(self.pokename))
-            saldiri.burn=0
+            saldiri.reseteffs()
         if saldiri.paralyze==1:
             self.status.clear()
             self.status.append('paralyze')
             print("{} is paralyzed! It may be unable to move!".format(self.pokename))
-            saldiri.paralyze=0
+            saldiri.reseteffs()
         if saldiri.sleep==1:
             self.status.clear()
             self.status.append('sleep')
             print("{} fell asleep!".format(self.pokename))
-            saldiri.sleep=0
+            saldiri.reseteffs()
         if saldiri.freeze==1:
             self.status.clear()
             self.status.append('freeze')
             print("{} is frozen solid! It can't move!".format(self.pokename))
-            saldiri.freeze=0
+            saldiri.reseteffs()
 
     def checkstatus(self):
         if "burn" in self.status:
@@ -156,21 +156,22 @@ class oyuncu():
                 sleep(1)
     
     def checkblock(self):                        #1 de 3 olasiliginda paralyze ken saldirabilir degistirilebilir
+        global block
         abletoatt=0
         if self.status is "paralyze":
             abletoatt=random.randint(1, 3)
             print("{} is paralyzed!".format(self.pokename))
         elif self.status is "sleep":
             print("{} is fast asleep.\n'ZZZZZZZZZ'".format(self.pokename))
-            saldiri.block=1
+            block=1
         elif self.status is "freeze":
             print("It can't move.")
-            saldiri.block=1
+            block=1
         else:
-            saldiri.block=0
+            block=0
         if abletoatt==1 or abletoatt==2:
             print("{} is paralyzed!\nIt can't move!".format(self. pokename))
-            saldiri.block=1
+            block=1
 
             
 
