@@ -120,7 +120,7 @@ class oyuncu():
             saldiri.freeze=0
 
     def checkstatus(self):
-        if self.status is "burn":
+        if self.status is 'burn':
             burnbreak=random.randint(1, 5)               # 1 de 5 kurtulma olasiligi fazla mi?
             if burnbreak==1:
                 print("{} is no longer burnt!".format(self.pokename))
