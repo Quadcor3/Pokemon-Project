@@ -24,35 +24,41 @@ def reseteffs():
             #   Fire-Type Moves
 
 def incinerate():
+
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)  #???
     dam=1
+
 def eruption():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)  #???
     dam=1
+
 def flamethrower():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)
     dam=1
+
 def overheat():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)
     dam=1
+
 def ember():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)
     dam=1
+
 def inferno():
     global damage, fail, dam, burn
     damage=random.randint(15, 25)
@@ -67,7 +73,7 @@ def inferno():
 def bubble():
     global damage, fail, dam
     fail=random.randint(1, 100)
-    if fail is (1,81): 
+    if fail < 81: 
         damage=40
     else:
         damage=0
@@ -75,31 +81,43 @@ def bubble():
 
 def dive():
     global damage, fail, dam
-    damage=80
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 51: 
+        damage= 80
+    else:
+        damage=0
     dam=1
 
 def surf():
-    global damage, fail, dam
-    damage=90
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 41: 
+        damage=90
+    else:
+        damage=0
     dam=1
 
 def brine():
-    global damage, fail, dam
-    damage= 65
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 81: 
+        damage=40
+    else:
+        damage=0
     dam=1
 
 def clamp():
-    global damage, fail, dam
-    damage= 35
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 81: 
+        damage=50
+    else:
+        damage=0
     dam=1
+
 def scald():
-    global damage, fail, dam
-    damage=80
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 71: 
+        damage=60
+    else:
+        damage=0
     dam=1
 
             # Grass

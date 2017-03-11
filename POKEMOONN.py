@@ -58,7 +58,7 @@ class oyuncu():
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
         else:
-            print("{} missed it's attack!".format(self.pokename, att))
+            print("{} missed it's attack!".format(self.pokename))
 
     def attheal(self):
         waitdot(3)
