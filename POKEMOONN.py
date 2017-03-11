@@ -6,7 +6,7 @@ block=0
 
 class oyuncu():
 
-    def __init__(self, isim, health=100, typadv=1 ):
+    def __init__(self, isim, health=1000, typadv=1 ):
         self.health=health
         self.pokename=isim
         self.saldiril=[]
@@ -57,7 +57,7 @@ class oyuncu():
             if 'water' == saldiri.saldirilar[att]:
                 print("It was super effective!")
                 self.typemod = 2
-            elif 'grass' == saldiri.saldirilar[att]:
+            elif 'grass' == saldiri.saldirilar[att] or 'fire' == saldiri.saldirilar[att]:
                 self.typemod = 0.5
                 print("It was not very effective...")
             else:
@@ -151,7 +151,7 @@ class oyuncu():
 
     def checkstatus(self):
         if "burn" in self.status:
-            burnbreak=random.randint(1, 2)               # 1 de 5 kurtulma olasiligi fazla mi?  Kurtulma olasılığı ayarla azaltıldı!
+            burnbreak=random.randint(1, 100)               # 1 de 5 kurtulma olasiligi fazla mi?  Kurtulma olasılığı ayarla azaltıldı!
             if burnbreak==1:
                 print("{} is no longer burnt!".format(self.pokename))
                 self.status.clear()
@@ -161,7 +161,7 @@ class oyuncu():
                 self.health-=burndamage
                 print("{} is hurt by its burn!\nTook {} damage!".format(self.pokename, burndamage))
         if "paralyze" in self.status:
-            paralyzebreak=random.randint(1, 3)                  #paralyze den kurtulma sansi 1 de 3
+            paralyzebreak=random.randint(1, 5)                  #paralyze den kurtulma sansi 1 de 5
             if paralyzebreak==1:
                 print("{} is no longer paralyzed!".format(self.pokename))
                 self.status.clear()
@@ -170,7 +170,7 @@ class oyuncu():
                 print("{} is still paralyzed!".format(self.pokename))
                 sleep(1)
         if "sleep" in self.status:
-            sleepbreak=random.randint(1, 3)
+            sleepbreak=random.randint(1, 5)
             if sleepbreak==1:
                 print("{} is awake!".format(self.pokename))
                 self.status.clear()
@@ -186,7 +186,6 @@ class oyuncu():
                 sleep(1)
     
     def checkblock(self):                        #1 de 3 olasiliginda paralyze ken saldirabilir degistirilebilir
-        global block
         abletoatt=0
         if self.status is "paralyze":
             abletoatt=random.randint(1, 3)
