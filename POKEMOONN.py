@@ -78,7 +78,7 @@ class oyuncu():
     def attdamage(self, yapan, karsi, att):   #for both
         waitdot(3)
         if saldiri.damage > 0:
-            yapan.typeadv(karsi)
+            yapan.typadv(karsi)
             karsi.health-=saldiri.damage * self.typemod
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
