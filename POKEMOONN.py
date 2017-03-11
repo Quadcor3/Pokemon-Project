@@ -46,39 +46,39 @@ class oyuncu():
         if block==0:
             print("{} used {}!".format(self.pokename, att))
             if saldiri.dam==1:
-                self.attdamage(yapan, karsi, att)
+                self.attdamage(karsi, att)
             elif saldiri.dam==0:
                 self.attheal()
             elif saldiri.dam==2:
                 karsi.statuseff()
 
     def typadv(self,karsi):
-        if karsi.poketype() == "fire":
-            if self.attmove == 'water':
-                self.typadv = 2
-            elif self.attmove == 'grass':
-                self.typadv = 0.5
-            else:
-                self.typemod = 1
-        elif "water" is karsi.poketype():
-            if 'grass' in self.attmove:
+        if "fire" == karsi.poketype():
+            if 'water' == self.attmove:
                 self.typemod = 2
-            elif 'fire' in self.attmove:
+            elif 'grass' == self.attmove:
                 self.typemod = 0.5
             else:
                 self.typemod = 1
-        elif "grass" is karsi.poketype():
-            if 'fire' in self.attmove:
+        elif "water" == karsi.poketype():
+            if 'grass' == self.attmove:
                 self.typemod = 2
-            elif 'water' in self.attmove:
+            elif 'fire' == self.attmove:
+                self.typemod = 0.5
+            else:
+                self.typemod = 1
+        elif "grass" == karsi.poketype():
+            if 'fire' == self.attmove:
+                self.typemod = 2
+            elif 'water' == self.attmove:
                 self.typemod = 0.5
             else:
                 self.typemod = 1   
-                     
-    def attdamage(self, yapan, karsi, att):   #for both
+                        
+    def attdamage(self, karsi, att):   #for both
         waitdot(3)
         if saldiri.damage > 0:
-            yapan.typadv(karsi)
+            self.typadv(karsi)
             karsi.health-=saldiri.damage * self.typemod
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
