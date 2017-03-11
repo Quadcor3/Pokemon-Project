@@ -2,7 +2,7 @@ import random
 
 
 saldirilar={'leafage': 'grass', 'synthesis': 'grass', 'ingrain': 'grass', 'spore': 'grass', 'absorb': 'grass', 'incinerate': 'fire','eruption': 'fire','flamethrower': 'fire','ember': 'fire','overheat': 'fire', 'recovery': 'normal','clamp': 'water', 'brine': 'water', 'surf': 'water','scald': 'water', 'dive': 'water','bubble': 'water', 'stomp': 'ground', 'psychic': 'psychic', 'ember': 'fire', 'inferno': 'fire', 'hypnosis': 'psychic', 'psybeam': 'psychic', 'stunspore': 'normal', 'blizzard': 'water'}
-types=['water', 'fire', 'psychic', 'ground', 'grass']
+types=['water', 'fire', 'grass']
 
                                                      ##Perish Song???
 paralyze=0
