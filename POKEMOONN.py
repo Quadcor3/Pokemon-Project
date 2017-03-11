@@ -53,10 +53,10 @@ class oyuncu():
                 karsi.statuseff()
 
     def typadv(self,karsi):
-        if karsi.poketype() is "fire":
+        if karsi.poketype == "fire":
             if self.attmove in 'water':
                 self.typadv = 2
-            elif self.attmove in 'grass':
+            elif self.attmove == "grass":
                 self.typadv = 0.5
             else:
                 self.typadv = 1
