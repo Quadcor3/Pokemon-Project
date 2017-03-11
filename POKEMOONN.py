@@ -11,7 +11,7 @@ class oyuncu():
         self.pokename=isim
         self.saldiril=[]
         self.status=[]
-        self.typeadv=typadv
+        self.typemod=typadv
         print("oyuncu eklendi")            #En son silinecek
 
     def poketypebelirle(self):      # For player
@@ -46,40 +46,40 @@ class oyuncu():
         if block==0:
             print("{} used {}!".format(self.pokename, att))
             if saldiri.dam==1:
-                self.attdamage(karsi)
+                self.attdamage(yapan, karsi, att)
             elif saldiri.dam==0:
                 self.attheal()
             elif saldiri.dam==2:
                 karsi.statuseff()
 
     def typadv(self,karsi):
-        if karsi.poketype == "fire":
-            if self.attmove in 'water':
-                self.typadv = 2
-            elif self.attmove == "grass":
-                self.typadv = 0.5
+        if "fire" is karsi.poketype():
+            if 'water' in self.attmove:
+                self.typemod = 2
+            elif 'grass' in self.attmove:
+                self.typemod = 0.5
             else:
-                self.typadv = 1
-        elif poketype(karsi) is "water":
-            if self.attmove in 'grass':
-                self.typadv = 2
-            elif self.attmove in 'fire':
-                self.typadv = 0.5
+                self.typemod = 1
+        elif "water" is karsi.poketype():
+            if 'grass' in self.attmove:
+                self.typemod = 2
+            elif 'fire' in self.attmove:
+                self.typemod = 0.5
             else:
-                self.typadv = 1
-        elif poketype(karsi) is "grass":
-            if self.attmove in 'fire':
-                self.typadv = 2
-            elif self.attmove in 'water':
-                self.typadv = 0.5
+                self.typemod = 1
+        elif "grass" is karsi.poketype():
+            if 'fire' in self.attmove:
+                self.typemod = 2
+            elif 'water' in self.attmove:
+                self.typemod = 0.5
             else:
-                self.typadv = 1      
-                     
-    def attdamage(self, karsi):   #for both
+                self.typemod = 1   
+                        
+    def attdamage(self, yapan, karsi, att):   #for both
         waitdot(3)
-        c = self.typadv (karsi)
         if saldiri.damage > 0:
-            karsi.health-=saldiri.damage * c
+            yapan.typadv(karsi)
+            karsi.health-=saldiri.damage * self.typemod
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
         else:
