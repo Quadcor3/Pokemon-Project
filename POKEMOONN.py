@@ -86,7 +86,7 @@ class oyuncu():
         if saldiri.damage > 0:
             self.typadv(karsi, att)
             karsi.health-=saldiri.damage * self.typemod
-            print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
+            print("{} is hit for {} damage!".format(karsi.pokename, (saldiri.damage * self.typemod)))
             karsi.statuseff()
         else:
             print("{} missed it's attack!".format(self.pokename))
