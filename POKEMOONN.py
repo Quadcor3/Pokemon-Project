@@ -77,6 +77,7 @@ class oyuncu():
                         
     def attdamage(self, karsi, att):   #for both
         waitdot(3)
+        c = self.typadv (karsi)
         if saldiri.damage > 0:
             self.typeadv(karsi)
             karsi.health-=saldiri.damage * self.typemod
