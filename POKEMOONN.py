@@ -42,7 +42,7 @@ class oyuncu():
                 sleep(1)
         self.checkstatus()
         self.checkblock()
-        if saldiri.block==0:
+        if block==0:
             print("{} used {}!".format(self.pokename, att))
             if saldiri.dam==1:
                 self.attdamage(karsi)
@@ -58,7 +58,7 @@ class oyuncu():
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
         else:
-            print("{} missed it's {}.".format(player.pokename, att))
+            print("{} missed it's attack!".format(self.pokename, att))
 
     def attheal(self):
         waitdot(3)
