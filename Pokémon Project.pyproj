@@ -26,6 +26,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POKEMOONN.py" />
+    <Compile Include="Pokêmon.py" />
     <Compile Include="saldiri.py" />
     <Compile Include="tools.py" />
     <Compile Include="yapılacaklar.py" />
