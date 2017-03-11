@@ -52,30 +52,30 @@ class oyuncu():
             elif saldiri.dam==2:
                 karsi.statuseff()
 
-    def typadv(self,karsi):
+    def typadv(self,karsi, att):
         if "fire" == karsi.poketype:
-            if 'water' == self.attmove:
+            if 'water' == saldiri.saldirilar[att]:
                 print("It was super effective!")
                 self.typemod = 2
-            elif 'grass' == self.attmove:
+            elif 'grass' == saldiri.saldirilar[att]:
                 self.typemod = 0.5
                 print("It was not very effective...")
             else:
                 self.typemod = 1
         elif "water" == karsi.poketype:
-            if 'grass' == self.attmove:
+            if 'grass' == saldiri.saldirilar[att]:
                 self.typemod = 2
                 print("It was super effective!")
-            elif 'fire' == self.attmove:
+            elif 'fire' == saldiri.saldirilar[att]:
                 self.typemod = 0.5
                 print("It was not very effective...")
             else:
                 self.typemod = 1
         elif "grass" == karsi.poketype:
-            if 'fire' == self.attmove:
+            if 'fire' == saldiri.saldirilar[att]:
                 self.typemod = 2
                 print("It was super effective!")
-            elif 'water' == self.attmove:
+            elif 'water' == saldiri.saldirilar[att]:
                 self.typemod = 0.5
                 print("It was not very effective...")
             else:
@@ -84,7 +84,7 @@ class oyuncu():
     def attdamage(self, karsi, att):   #for both
         waitdot(3)
         if saldiri.damage > 0:
-            self.typadv(karsi)
+            self.typadv(karsi, att)
             karsi.health-=saldiri.damage * self.typemod
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
