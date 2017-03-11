@@ -53,21 +53,21 @@ class oyuncu():
                 karsi.statuseff()
 
     def typadv(self,karsi):
-        if "fire" == karsi.poketype():
+        if "fire" == karsi.poketype:
             if 'water' == self.attmove:
                 self.typemod = 2
             elif 'grass' == self.attmove:
                 self.typemod = 0.5
             else:
                 self.typemod = 1
-        elif "water" == karsi.poketype():
+        elif "water" == karsi.poketype:
             if 'grass' == self.attmove:
                 self.typemod = 2
             elif 'fire' == self.attmove:
                 self.typemod = 0.5
             else:
                 self.typemod = 1
-        elif "grass" == karsi.poketype():
+        elif "grass" == karsi.poketype:
             if 'fire' == self.attmove:
                 self.typemod = 2
             elif 'water' == self.attmove:
@@ -197,7 +197,14 @@ class oyuncu():
             print("{} is paralyzed!\nIt can't move!".format(self. pokename))
             block=1
    
+def checkdead():
+    if player.health <=0:
+        print("{} you has been defeated!".format(player.pokename))
+        return True
 
+    if com.health <=0:
+        print("{} you has been defeated!".format(com.pokename))
+        return True
 
 #pokemonismi=input("Pokemonunuzun ismi:\n")
 #player=oyuncu(pokemonismi)
@@ -219,18 +226,21 @@ com.comekleme()
 while player.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
     print("Your turn!!")
     player.attmove('player', com)
+    if checkdead():
+        print("You die")
+        break
     if com.health >0:
         print("Opponent's turn...")
         waitdot(2)
         com.attmove('com', player)
         sleep(2)
+        if checkdead():
+            print("You won")
+            break
 
 
-if player.health <=0:
-    print("{} you has been defeated!".format(player.pokename))
+sleep(10)
 
-if com.health <=0:
-    print("{} you has been defeated!".format(com.pokename))
 
 
 
