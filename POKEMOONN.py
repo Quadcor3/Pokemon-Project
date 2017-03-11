@@ -46,7 +46,7 @@ class oyuncu():
         if block==0:
             print("{} used {}!".format(self.pokename, att))
             if saldiri.dam==1:
-                self.attdamage(yapan, karsi, att)
+                self.attdamage(karsi, att)
             elif saldiri.dam==0:
                 self.attheal()
             elif saldiri.dam==2:
@@ -75,10 +75,10 @@ class oyuncu():
             else:
                 self.typemod = 1   
                         
-    def attdamage(self, yapan, karsi, att):   #for both
+    def attdamage(self, karsi, att):   #for both
         waitdot(3)
         if saldiri.damage > 0:
-            yapan.typadv(karsi)
+            self.typadv(karsi)
             karsi.health-=saldiri.damage * self.typemod
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
