@@ -24,48 +24,57 @@ def reseteffs():
             #   Fire-Type Moves     0.9
 
 def incinerate():
-
     global damage, fail, dam, burn
-    damage=random.randint(20, 28)
-    fail=random.randint(1, 5)
-    burn=random.randint(1, 6) 
+    fail=random.randint(1, 100)
+    if fail < 81: 
+        damage=30
+    else:
+        damage=0
+    burn=random.randint(1, 6)
     dam=1
-
 def eruption():
     global damage, fail, dam, burn
-    damage=random.randint(20, 28)
-    fail=random.randint(1, 5)
+    fail=random.randint(1, 100)
+    if fail < 71: 
+        damage=40
+    else:
+        damage=0
     burn=random.randint(1, 6) 
     dam=1
-
 def flamethrower():
     global damage, fail, dam, burn
-    damage=random.randint(20, 28)
-    fail=random.randint(1, 5)
+    fail=random.randint(1, 100)
+    if fail < 61: 
+        damage=50
+    else:
+        damage=0
     burn=random.randint(1, 6)
     dam=1
-
 def overheat():
     global damage, fail, dam, burn
-    damage=random.randint(20, 28)
-    fail=random.randint(1, 5)
+    fail=random.randint(1, 100)
+    if fail < 51: 
+        damage=70
+    else:
+        damage=0
     burn=random.randint(1, 6)
     dam=1
-
 def ember():
     global damage, fail, dam, burn
-    damage=random.randint(20, 28)
-    fail=random.randint(1, 5)
+    fail=random.randint(1, 100)
+    if fail < 31: 
+        damage=80
+    else:
+        damage=0
     burn=random.randint(1, 6)
     dam=1
-
 def inferno():
     global damage, fail, dam, burn
-    damage=random.randint(15, 25)
-    fail=random.randint(1, 3)             # 1/2 X 2/3 den 1/3 olasılık oldu
-    if fail==2 or fail==3:
-        fail=random.randint(1, 2)
-    burn=1
+    fail=random.randint(1, 100)
+    if fail < 11: 
+        damage=1000
+    else:
+        damage=0
     dam=1
 
             #   Water-Type Moves    1.0      
@@ -74,48 +83,47 @@ def bubble():
     global damage, fail, dam
     fail=random.randint(1, 100)
     if fail < 81: 
-        damage=40
+        damage=30
     else:
         damage=0
     dam=1
-
 def dive():
     global damage, fail, dam
     fail=random.randint(1, 100)
-    if fail < 51: 
-        damage= 80
+    if fail < 71: 
+        damage= 40
     else:
         damage=0
     dam=1
-
 def surf():
+    global damage, fail, dam
     fail=random.randint(1, 100)
-    if fail < 41: 
-        damage=90
-    else:
-        damage=0
-    dam=1
-
-def brine():
-    fail=random.randint(1, 100)
-    if fail < 81: 
-        damage=40
-    else:
-        damage=0
-    dam=1
-
-def clamp():
-    fail=random.randint(1, 100)
-    if fail < 81: 
+    if fail < 61: 
         damage=50
     else:
         damage=0
     dam=1
-
-def scald():
+def brine():
+    global damage, fail, dam
     fail=random.randint(1, 100)
-    if fail < 71: 
-        damage=60
+    if fail < 51: 
+        damage=70
+    else:
+        damage=0
+    dam=1
+def clamp():
+    global damage, fail, dam
+    fail=random.randint(1, 100)
+    if fail < 51: 
+        damage=70
+    else:
+        damage=0
+    dam=1
+def scald():
+    global damage, fail, dam
+    fail=random.randint(1, 100)
+    if fail < 31: 
+        damage=80
     else:
         damage=0
     dam=1
@@ -124,30 +132,45 @@ def scald():
 
 def absorb():
     global damage, fail, dam
-    damage=random.randint(15, 25)
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 81: 
+        damage=30
+    else:
+        damage=0
     dam=1
 def ingrain():
     global damage, fail, dam
-    damage=random.randint(15, 25)
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 71: 
+        damage=40
+    else:
+        damage=0
     dam=1
 def spore():
     global damage, fail, dam
-    damage=random.randint(15, 25)
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 61: 
+        damage=50
+    else:
+        damage=0
     dam=1
 def synthesis():
     global damage, fail, dam
-    damage=random.randint(15, 25)
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 51: 
+        damage=70
+    else:
+        damage=0
     dam=1
 def leafage():
-    global damage, fail, dam
-    damage=random.randint(15, 25)
-    fail=random.randint(1, 8)
+    fail=random.randint(1, 100)
+    if fail < 31: 
+        damage=80
+    else:
+        damage=0
     dam=1
 
+            # Electric-Type Moves (Soon)
 
 def recovery():
     global heal, fail, statusheal, dam
@@ -158,21 +181,14 @@ def recovery():
 
 
 
-def stomp():
-    global paralyze, damage, fail, dam
-    damage=random.randint(10, 25)
-    fail=random.randint(1, 5)
-    dam=1
-    paralyze=random.randint(1, 4)
+
+            # Psychich-Type Moves
 
 def psychic():
     global damage, fail, dam
     damage=random.randint(30, 35)
     fail=random.randint(1, 4)
     dam=1
-
-
-
 def hypnosis():
     global fail, dam, sleep
     fail=random.randint(1, 2)          # 4'te 1 olasılık
@@ -180,13 +196,18 @@ def hypnosis():
         fail=random.randint(1, 2)
     sleep=1
     dam=2
-
 def psybeam():
     global damage, fail, dam
     damage=random.randint(15, 30)
     fail=random.randint(1, 6)
     dam=1
-
+            #Normal-Type Moves
+def stomp():
+    global paralyze, damage, fail, dam
+    damage=random.randint(10, 25)
+    fail=random.randint(1, 5)
+    dam=1
+    paralyze=random.randint(1, 4)
 def stunspore():
     global fail, dam, paralyze
     fail=random.randint(1, 3)
