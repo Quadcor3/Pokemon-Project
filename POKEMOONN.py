@@ -6,11 +6,12 @@ block=0
 
 class oyuncu():
 
-    def __init__(self, isim, health=100):
+    def __init__(self, isim, health=100, typadv=1 ):
         self.health=health
         self.pokename=isim
         self.saldiril=[]
         self.status=[]
+        self.typeadv=typadv
         print("oyuncu eklendi")            #En son silinecek
 
     def poketypebelirle(self):      # For player
@@ -50,11 +51,34 @@ class oyuncu():
                 self.attheal()
             elif saldiri.dam==2:
                 karsi.statuseff()
-            
+
+    def typeadv(self,karsi):
+        if poketype(karsi) is "fire":
+            if self.attmove in 'water':
+                self.typadv = 2
+            elif self.attmove in 'grass':
+                self.typadv = 0.5
+            else:
+                self.typadv = 1
+        elif poketype(karsi) is "water":
+            if self.attmove in 'grass':
+                self.typadv = 2
+            elif self.attmove in 'fire':
+                self.typadv = 0.5
+            else:
+                self.typadv = 1
+        elif poketype(karsi) is "grass":
+            if self.attmove in 'fire':
+                self.typadv = 2
+            elif self.attmove in 'water':
+                self.typadv = 0.5
+            else:
+                self.typadv = 1   
+                        
     def attdamage(self, karsi):   #for both
         waitdot(3)
         if saldiri.damage > 0:
-            karsi.health-=saldiri.damage
+            karsi.health-=saldiri.damage * self.typadv
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
         else:
@@ -171,8 +195,7 @@ class oyuncu():
         if abletoatt==1 or abletoatt==2:
             print("{} is paralyzed!\nIt can't move!".format(self. pokename))
             block=1
-
-            
+   
 
 
 #pokemonismi=input("Pokemonunuzun ismi:\n")
