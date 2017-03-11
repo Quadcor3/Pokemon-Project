@@ -53,11 +53,11 @@ class oyuncu():
                 karsi.statuseff()
 
     def typadv(self,karsi):
-        if "fire" is karsi.poketype():
-            if 'water' in self.attmove:
-                self.typemod = 2
-            elif 'grass' in self.attmove:
-                self.typemod = 0.5
+        if karsi.poketype() == "fire":
+            if self.attmove == 'water':
+                self.typadv = 2
+            elif self.attmove == 'grass':
+                self.typadv = 0.5
             else:
                 self.typemod = 1
         elif "water" is karsi.poketype():
@@ -74,7 +74,7 @@ class oyuncu():
                 self.typemod = 0.5
             else:
                 self.typemod = 1   
-                        
+                     
     def attdamage(self, yapan, karsi, att):   #for both
         waitdot(3)
         if saldiri.damage > 0:
