@@ -1,8 +1,8 @@
 import random
 
 
-saldirilar={'flame': 'fire','flamethrower': 'fire','ember': 'fire','overheat': 'fire', 'recovery': 'normal', 'bubble': 'water', 'stomp': 'ground', 'psychic': 'psychic', 'ember': 'fire', 'inferno': 'fire', 'hypnosis': 'psychic', 'psybeam': 'psychic', 'stunspore': 'normal', 'blizzard': 'water'}
-types=['water', 'fire', 'psychic', 'ground']
+saldirilar={'leafage': 'grass', 'synthesis': 'grass', 'ingrain': 'grass', 'spore': 'grass', 'absorb': 'grass', 'incinerate': 'fire','eruption': 'fire','flamethrower': 'fire','ember': 'fire','overheat': 'fire', 'recovery': 'normal','clamp': 'water', 'brine': 'water', 'surf': 'water','scald': 'water', 'dive': 'water','bubble': 'water', 'stomp': 'ground', 'psychic': 'psychic', 'ember': 'fire', 'inferno': 'fire', 'hypnosis': 'psychic', 'psybeam': 'psychic', 'stunspore': 'normal', 'blizzard': 'water'}
+types=['water', 'fire', 'psychic', 'ground', 'grass']
 
                                                      ##Perish Song???
 paralyze=0
@@ -20,34 +20,116 @@ def reseteffs():
     heal=0
     statusheal=0
     freeze=0
+            
+            #   Fire-Type Moves
 
-def flame():
+def incinerate():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)  #???
     dam=1
-
+def eruption():
+    global damage, fail, dam, burn
+    damage=random.randint(20, 28)
+    fail=random.randint(1, 5)
+    burn=random.randint(1, 6)  #???
+    dam=1
 def flamethrower():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)
     dam=1
-
 def overheat():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)
     dam=1
-
 def ember():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
     burn=random.randint(1, 6)
     dam=1
+def inferno():
+    global damage, fail, dam, burn
+    damage=random.randint(15, 25)
+    fail=random.randint(1, 3)             # 1/2 X 2/3 den 1/3 olasılık oldu
+    if fail==2 or fail==3:
+        fail=random.randint(1, 2)
+    burn=1
+    dam=1
+
+            #   Water-Type Moves
+
+def bubble():
+    global damage, fail, dam
+    fail=random.randint(1, 100)
+    if fail is (1,81): 
+        damage=40
+    else:
+        damage=0
+    dam=1
+
+def dive():
+    global damage, fail, dam
+    damage=80
+    fail=random.randint(1, 8)
+    dam=1
+
+def surf():
+    global damage, fail, dam
+    damage=90
+    fail=random.randint(1, 8)
+    dam=1
+
+def brine():
+    global damage, fail, dam
+    damage= 65
+    fail=random.randint(1, 8)
+    dam=1
+
+def clamp():
+    global damage, fail, dam
+    damage= 35
+    fail=random.randint(1, 8)
+    dam=1
+def scald():
+    global damage, fail, dam
+    damage=80
+    fail=random.randint(1, 8)
+    dam=1
+
+            # Grass
+
+def absorb():
+    global damage, fail, dam
+    damage=random.randint(15, 25)
+    fail=random.randint(1, 8)
+    dam=1
+def ingrain():
+    global damage, fail, dam
+    damage=random.randint(15, 25)
+    fail=random.randint(1, 8)
+    dam=1
+def spore():
+    global damage, fail, dam
+    damage=random.randint(15, 25)
+    fail=random.randint(1, 8)
+    dam=1
+def synthesis():
+    global damage, fail, dam
+    damage=random.randint(15, 25)
+    fail=random.randint(1, 8)
+    dam=1
+def leafage():
+    global damage, fail, dam
+    damage=random.randint(15, 25)
+    fail=random.randint(1, 8)
+    dam=1
+
 
 def recovery():
     global heal, fail, statusheal, dam
@@ -56,11 +138,7 @@ def recovery():
     statusheal=random.randint(1, 5) ## Karşındaki pokemona göre farklı heal seçtirilebilir ya da direk allheal olur
     dam=0
 
-def bubble():
-    global damage, fail, dam
-    damage=random.randint(15, 25)
-    fail=random.randint(1, 8)
-    dam=1
+
 
 def stomp():
     global paralyze, damage, fail, dam
@@ -75,21 +153,7 @@ def psychic():
     fail=random.randint(1, 4)
     dam=1
 
-def ember():
-    global damage, fail, dam, burn
-    damage=random.randint(10, 20)
-    fail=random.randint(1, 6)
-    burn=random.randint(1, 3)
-    dam=1
 
-def inferno():
-    global damage, fail, dam, burn
-    damage=random.randint(15, 25)
-    fail=random.randint(1, 3)             # 1/2 X 2/3 den 1/3 olasılık oldu
-    if fail==2 or fail==3:
-        fail=random.randint(1, 2)
-    burn=1
-    dam=1
 
 def hypnosis():
     global fail, dam, sleep

@@ -53,13 +53,12 @@ class oyuncu():
             
     def attdamage(self, karsi):   #for both
         waitdot(3)
-        if saldiri.fail==1:
-            print("But it failed!")
-            saldiri.reseteffs()
-        else:
+        if saldiri.damage > 0:
             karsi.health-=saldiri.damage
             print("{} is hit for {} damage!".format(karsi.pokename, saldiri.damage))
             karsi.statuseff()
+        else:
+            print("{} missed it's {}.".format(player.pokename, att))
 
     def attheal(self):
         waitdot(3)
