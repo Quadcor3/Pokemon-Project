@@ -212,13 +212,17 @@ def checkdead():
         print("{} you has been defeated!".format(com.pokename))
         return True
 
-#pokemonismi=input("Pokemonunuzun ismi:\n")
-#player=oyuncu(pokemonismi)
-#rakip_pokemon=input("rakip poke isim: ")
-#com=oyuncu(rakip_pokemon)
-#player.ekleme()
-#checkstatus()  ##??
-#player.attmove(com)
+#           -------------Yapılacaklar!!!-------
+#
+#
+#
+#
+#
+#
+#
+#
+#---------------------------------------------------------------------
+
 
 pokemonismi=input("Pokemonunuzun ismi:\n")
 player=oyuncu(pokemonismi)
@@ -233,7 +237,7 @@ while player.health >0 or com.health >0:          #checkstatus u saldırının i
     print("Your turn!!")
     player.attmove('player', com)
     if checkdead():
-        print("You die")
+        print("You won")
         break
     if com.health >0:
         print("Opponent's turn...")
@@ -241,7 +245,7 @@ while player.health >0 or com.health >0:          #checkstatus u saldırının i
         com.attmove('com', player)
         sleep(2)
         if checkdead():
-            print("You won")
+            print("You die")
             break
 
 
