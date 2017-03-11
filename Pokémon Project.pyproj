@@ -26,9 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POKEMOONN.py" />
-    <Compile Include="Pokêmon.py" />
     <Compile Include="saldiri.py" />
     <Compile Include="tools.py" />
+    <Compile Include="yapılacaklar.py" />
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
