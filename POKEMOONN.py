@@ -53,25 +53,31 @@ class oyuncu():
                 karsi.statuseff()
 
     def typadv(self,karsi):
-        if "fire" == karsi.poketype():
+        if "fire" == karsi.poketype:
             if 'water' == self.attmove:
+                print("It was super effective!")
                 self.typemod = 2
             elif 'grass' == self.attmove:
                 self.typemod = 0.5
+                print("It was not very effective...")
             else:
                 self.typemod = 1
-        elif "water" == karsi.poketype():
+        elif "water" == karsi.poketype:
             if 'grass' == self.attmove:
                 self.typemod = 2
+                print("It was super effective!")
             elif 'fire' == self.attmove:
                 self.typemod = 0.5
+                print("It was not very effective...")
             else:
                 self.typemod = 1
-        elif "grass" == karsi.poketype():
+        elif "grass" == karsi.poketype:
             if 'fire' == self.attmove:
                 self.typemod = 2
+                print("It was super effective!")
             elif 'water' == self.attmove:
                 self.typemod = 0.5
+                print("It was not very effective...")
             else:
                 self.typemod = 1   
                         
