@@ -21,21 +21,21 @@ def reseteffs():
     statusheal=0
     freeze=0
             
-            #   Fire-Type Moves
+            #   Fire-Type Moves     0.9
 
 def incinerate():
 
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
-    burn=random.randint(1, 6)  #???
+    burn=random.randint(1, 6) 
     dam=1
 
 def eruption():
     global damage, fail, dam, burn
     damage=random.randint(20, 28)
     fail=random.randint(1, 5)
-    burn=random.randint(1, 6)  #???
+    burn=random.randint(1, 6) 
     dam=1
 
 def flamethrower():
@@ -68,7 +68,7 @@ def inferno():
     burn=1
     dam=1
 
-            #   Water-Type Moves
+            #   Water-Type Moves    1.0      
 
 def bubble():
     global damage, fail, dam
@@ -120,7 +120,7 @@ def scald():
         damage=0
     dam=1
 
-            # Grass
+            # Grass-Type Moves      1.0
 
 def absorb():
     global damage, fail, dam
