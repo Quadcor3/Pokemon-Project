@@ -239,7 +239,7 @@ com.comadd()
 while user.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
 
     f = open ("saldiri_kaydi.txt","a+")
-    f.write ("Your" + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
+    f.write ("Your " + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
 
     save_poke = open("save.txt","a+")
     save_poke.write (pokemonismi )
