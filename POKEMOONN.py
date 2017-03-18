@@ -12,7 +12,7 @@ class player():
     def __init__(self, isim, health=1000, typadv=1 ):
         self.health=health
         self.pokename=isim
-        self.sadiri=[]
+        self.saldiri=[]
         self.status=[]
         self.typemod=typadv
         print("Player added!")            #En son silinecek
@@ -35,10 +35,10 @@ class player():
     def attmove(self, yapan, karsi):     # For player and now for com too
         while True:
             if yapan=="player":
-                att=input("What is your move?:\n{}".format(self.sadiri))
+                att=input("What is your move?:\n{}".format(self.saldiri))
             if yapan=="com":
-                att=random.choice(self.sadiri)
-            if att in self.sadiri:
+                att=random.choice(self.saldiri)
+            if att in self.saldiri:
                 getattr(saldiri, att)()   #saldiri.(kullanıcı inputu)  yapmaya yarıyo
                 break
             else:
@@ -57,7 +57,7 @@ class player():
 
     def typadv(self,karsi, att):
         if "fire" == karsi.poketype:
-            if 'water' == saldiri.sadirilar[att]:
+            if 'water' == saldiri.saldirilar[att]:
                 print("It was super effective!")
                 self.typemod = 2
             elif 'grass' == saldiri.saldirilar[att] or 'fire' == saldiri.saldirilar[att]:
@@ -126,8 +126,8 @@ class player():
         for i in range(1, 5):
             while True:
                 k=random.choice(list(saldiri.saldirilar.keys()))
-                if k not in self.sadiri and saldiri.saldirilar[k] in self.poketype or saldiri.saldirilar[k] is 'normal':
-                    self.sadiri.append(k)
+                if k not in self.saldiri and saldiri.saldirilar[k] in self.poketype or saldiri.saldirilar[k] is 'normal':
+                    self.saldiri.append(k)
                     break
 
 
