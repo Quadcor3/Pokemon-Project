@@ -130,7 +130,8 @@ class player():
                         print("You can't select that type of move!")
                 else:
                     print("There is no such move!")
-            break
+            if x == "debug":
+                break
 
 
     def comadd(self):
