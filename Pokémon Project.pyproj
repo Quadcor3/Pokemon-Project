@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{906cf97d-7322-4494-93a8-254163388ac3}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>Pokêmon.py</StartupFile>
+    <StartupFile>Battle.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -25,7 +25,10 @@
     <Compile Include="istihza oyunu.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POKEMOONN.py" />
+    <Compile Include="Battle.py" />
+    <Compile Include="Pokêmon Pick.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Pokêmon.py" />
     <Compile Include="saldiri.py" />
     <Compile Include="tools.py" />
