@@ -119,7 +119,6 @@ class player():
                     self.saldiri.append("recovery")
                     self.saldiri.append("inferno")
                     print("Saldirilar: ", self.saldiri)
-                    break
                 elif x in saldiri.saldirilar:
                     if x in self.saldiri:
                         print("You can't select the same move.")
@@ -130,6 +129,8 @@ class player():
                         print("You can't select that type of move!")
                 else:
                     print("There is no such move!")
+            break
+
 
     def comadd(self):
         for i in range(1, 5):
