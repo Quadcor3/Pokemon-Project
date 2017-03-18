@@ -15,7 +15,7 @@ class oyuncu():
         self.move_list=[]
         self.status=[]
         self.typemod=typadv
-        print("Player added")            #En son silinecek
+        print("Player added!")            #En son silinecek
 
     def player_type_pokemon(self):      # Type Decleration For Player Pokemon
         while True:
