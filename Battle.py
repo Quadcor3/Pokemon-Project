@@ -11,7 +11,7 @@ class battle():
 
 
     def __init__(self, health, saldiri, status, typadv=1):
-        self.battlehealth=health
+        self.battlehealth= health
         self.saldiri=saldiri
         self.status=status
         self.typemod=typadv

@@ -26,10 +26,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Battle.py" />
-    <Compile Include="Pokêmon Pick.py">
+    <Compile Include="pokemonpick.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Pokêmon.py" />
+    <Compile Include="pokemon.py" />
     <Compile Include="saldiri.py" />
     <Compile Include="tools.py" />
     <Compile Include="yapılacaklar.py" />
