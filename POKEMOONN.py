@@ -272,8 +272,7 @@ def battle():
                 f.write ("Your " + pokemonismi + " has lost... \r\n")
                 break
 
-        
-    sleep(10)
+sleep(10)
 
 
 
