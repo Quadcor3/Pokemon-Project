@@ -5,6 +5,7 @@ import os
 from os import path
 import shutil
 import pokemonpick
+print("AMK senin")
 
 block=0
 
