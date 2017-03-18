@@ -10,8 +10,8 @@ block=0
 class battle():
 
 
-    def __init__(self, health, saldiri, status, typadv=1):
-        self.battlehealth=health
+    def __init__(self, saldiri, status, typadv=1):
+        self.battlehealth=
         self.saldiri=saldiri
         self.status=status
         self.typemod=typadv
