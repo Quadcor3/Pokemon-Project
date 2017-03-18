@@ -191,7 +191,7 @@ def checkdead(self):
 #---------------------------------------------------------------------
 
 def battle():
-    pokemonismi=input("What is your Pokêmon's nickname? \n")
+    pokemonismi=input("What is your Pokemon's nickname? \n")
     user=player(pokemonismi)
     user.player_type_pokemon()
     user.add()

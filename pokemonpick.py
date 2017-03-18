@@ -13,7 +13,7 @@ class player():
     #Type Declaration
     def player_type_pokemon(self):     
         while True:
-            x=str.lower(input("Which of the following type is your Pok�mon's?\n{} \n".format(saldiri.types))) 
+            x=str.lower(input("Which of the following type is your Pokemon's?\n{} \n".format(saldiri.types))) 
             if x in saldiri.types:
                 print("Type accepted.")
                 self.poketype = x
