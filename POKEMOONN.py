@@ -15,9 +15,9 @@ class player():
         self.saldiri=[]
         self.status=[]
         self.typemod=typadv
-        print("Player added!")            #En son silinecek
+        print("player added!")            #En son silinecek
 
-    def player_type_pokemon(self):      # Type Decleration For Player Pokemon
+    def player_type_pokemon(self):      # Type Decleration For player Pokemon
         while True:
             x=str.lower(input("Which of the following type is your Pokémon's?\n{} \n".format(saldiri.types)))  #Hata var if le seçmeyi sınırla  -  lowercase yapıldı
             if x in saldiri.types:
@@ -228,9 +228,9 @@ def checkdead():
 
 
 pokemonismi=input("What is your Pokêmon's nickname? \n")
-player=player(pokemonismi)
-player.player_type_pokemon()
-player.add()
+user=player(pokemonismi)
+user.player_type_pokemon()
+user.add()
 enemy_pokemon=input("Who is your enemy? \n")                #aldigi tipe gore onceden belirlenmis isimler alabilir
 com=player(enemy_pokemon)
 com.com_type_pokemon()
@@ -245,7 +245,7 @@ while player.health >0 or com.health >0:          #checkstatus u saldırının i
     save_poke.write (pokemonismi + movelist)
 
     print("Your turn! \n")
-    player.attmove('player', com)
+    user.attmove('user', com)
     if checkdead():
         print("You won!")
         f.write ("Your " + pokemonismi + " has won! \r\n")
@@ -253,7 +253,7 @@ while player.health >0 or com.health >0:          #checkstatus u saldırının i
     if com.health >0:
         print("Opponent's turn! \n")
         waitdot(2)
-        com.attmove('com', player)
+        com.attmove('com', user)
         sleep(2)
         if checkdead():
             print("You lost...")   
