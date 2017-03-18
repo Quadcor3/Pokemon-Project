@@ -35,7 +35,7 @@ class player():
     def attmove(self, yapan, karsi):     # For player and now for com too
         while True:
             if yapan=="user":
-                att=input("What is your move?:\n{}".format(self.saldiri))
+                att=input("What is your move?:\n{}\n".format(self.saldiri))
             if yapan=="com":
                 att=random.choice(self.saldiri)
             if att in self.saldiri:
