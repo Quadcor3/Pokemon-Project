@@ -259,7 +259,7 @@ def battle():
         print("Your turn! \n")
         user.attmove('user', com)
         if checkdead():
-         print("You won!")
+            print("You won!")
             f.write ("Your " + pokemonismi + " has won! \r\n")
             break
         if com.health >0:
