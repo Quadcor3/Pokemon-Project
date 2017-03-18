@@ -111,7 +111,16 @@ class player():
         for i in range(1, 5):
             while True:
                 x=str.lower(input("{} icin {}. saldiriyi girin\n".format(self.pokename, i)))
-                if x in saldiri.saldirilar:
+                if x== "debug":
+                    print("Selecting moves automatically")
+                    waitdot(3)
+                    self.saldiri.append("ember")
+                    self.saldiri.append("flamethrower")
+                    self.saldiri.append("recovery")
+                    self.saldiri.append("inferno")
+                    print("Saldirilar: ", self.saldiri)
+                    break
+                elif x in saldiri.saldirilar:
                     if x in self.saldiri:
                         print("You can't select the same move.")
                     elif saldiri.saldirilar[x] in self.poketype or saldiri.saldirilar[x] is 'normal':
