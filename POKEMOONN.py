@@ -7,12 +7,12 @@ import shutil
 
 block=0
 
-class oyuncu():
+class player():
 
     def __init__(self, isim, health=1000, typadv=1 ):
         self.health=health
         self.pokename=isim
-        self.move_list=[]
+        self.sadiri=[]
         self.status=[]
         self.typemod=typadv
         print("Player added!")            #En son silinecek
@@ -35,10 +35,10 @@ class oyuncu():
     def attmove(self, yapan, karsi):     # For player and now for com too
         while True:
             if yapan=="player":
-                att=input("What is your move?:\n{}".format(self.move_list))
+                att=input("What is your move?:\n{}".format(self.sadiri))
             if yapan=="com":
-                att=random.choice(self.move_list)
-            if att in self.move_list:
+                att=random.choice(self.sadiri)
+            if att in self.sadiri:
                 getattr(saldiri, att)()   #saldiri.(kullanıcı inputu)  yapmaya yarıyo
                 break
             else:
@@ -57,28 +57,28 @@ class oyuncu():
 
     def typadv(self,karsi, att):
         if "fire" == karsi.poketype:
-            if 'water' == saldiri.move_listar[att]:
+            if 'water' == saldiri.sadirilar[att]:
                 print("It was super effective!")
                 self.typemod = 2
-            elif 'grass' == saldiri.move_listar[att] or 'fire' == saldiri.move_listar[att]:
+            elif 'grass' == saldiri.saldirilar[att] or 'fire' == saldiri.saldirilar[att]:
                 self.typemod = 0.5
                 print("It was not very effective...")
             else:
                 self.typemod = 1
         elif "water" == karsi.poketype:
-            if 'grass' == saldiri.move_listar[att]:
+            if 'grass' == saldiri.saldirilar[att]:
                 self.typemod = 2
                 print("It was super effective!")
-            elif 'fire' == saldiri.move_listar[att]:
+            elif 'fire' == saldiri.saldirilar[att]:
                 self.typemod = 0.5
                 print("It was not very effective...")
             else:
                 self.typemod = 1
         elif "grass" == karsi.poketype:
-            if 'fire' == saldiri.move_listar[att]:
+            if 'fire' == saldiri.saldirilar[att]:
                 self.typemod = 2
                 print("It was super effective!")
-            elif 'water' == saldiri.move_listar[att]:
+            elif 'water' == saldiri.saldirilar[att]:
                 self.typemod = 0.5
                 print("It was not very effective...")
             else:
@@ -111,11 +111,11 @@ class oyuncu():
         for i in range(1, 5):
             while True:
                 x=str.lower(input("{} icin {}. saldiriyi girin\n".format(self.pokename, i)))
-                if x in saldiri.move_listar:
-                    if x in self.move_list:
+                if x in saldiri.saldirilar:
+                    if x in self.sadiri:
                         print("You can't select the same move.")
-                    elif saldiri.move_listar[x] in self.poketype or saldiri.move_listar[x] is 'normal':
-                        self.move_list.append(x)
+                    elif saldiri.saldirilar[x] in self.poketype or saldiri.saldirilar[x] is 'normal':
+                        self.saldiri.append(x)
                         break
                     else:
                         print("You can't select that type of move!")
@@ -125,9 +125,9 @@ class oyuncu():
     def comadd(self):
         for i in range(1, 5):
             while True:
-                k=random.choice(list(saldiri.move_listar.keys()))
-                if k not in self.move_list and saldiri.move_listar[k] in self.poketype or saldiri.move_listar[k] is 'normal':
-                    self.move_list.append(k)
+                k=random.choice(list(saldiri.saldirilar.keys()))
+                if k not in self.sadiri and saldiri.saldirilar[k] in self.poketype or saldiri.saldirilar[k] is 'normal':
+                    self.sadiri.append(k)
                     break
 
 
@@ -228,11 +228,11 @@ def checkdead():
 
 
 pokemonismi=input("What is your Pokêmon's nickname? \n")
-player=oyuncu(pokemonismi)
+player=player(pokemonismi)
 player.player_type_pokemon()
 player.add()
 enemy_pokemon=input("Who is your enemy? \n")                #aldigi tipe gore onceden belirlenmis isimler alabilir
-com=oyuncu(enemy_pokemon)
+com=player(enemy_pokemon)
 com.com_type_pokemon()
 com.comadd()
 
@@ -240,6 +240,9 @@ while player.health >0 or com.health >0:          #checkstatus u saldırının i
 
     f = open ("saldiri_kaydi.txt","a+")
     f.write ("Your" + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
+
+    save_poke = open("save.txt","a+")
+    save_poke.write (pokemonismi + movelist)
 
     print("Your turn! \n")
     player.attmove('player', com)
