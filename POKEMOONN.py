@@ -238,10 +238,9 @@ com.comekleme()
 
 while player.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
 
-    f = open ("saldiri_kaydı.txt","w+")
+    f = open ("saldiri_kaydi.txt","a+")
     f.write (pokemonismi + " vs " + rakip_pokemon + "\r\n")
-    src= path.realpath ("saldiri_kaydı.txt")
-    dst = "war_ " + i
+   
 
     print("Your turn!!")
     player.attmove('player', com)
@@ -256,7 +255,6 @@ while player.health >0 or com.health >0:          #checkstatus u saldırının i
         sleep(2)
         if checkdead():
             print("You die")
-            os.rename
             break
 
         
