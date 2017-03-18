@@ -8,7 +8,12 @@ import shutil
 block=0
 
 class battle():
-    self.typemod=typadv
+
+
+    def __init__(self):
+        self.typemod=typadv
+
+
     def attmove(self, yapan, karsi):     # For player and now for com too
         while True:
             if yapan=="user":
