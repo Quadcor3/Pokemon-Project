@@ -1,0 +1,3 @@
+import POKEMOONN
+
+POKEMOONN.battle()

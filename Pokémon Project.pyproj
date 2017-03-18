@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{906cf97d-7322-4494-93a8-254163388ac3}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>POKEMOONN.py</StartupFile>
+    <StartupFile>Pokêmon.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
