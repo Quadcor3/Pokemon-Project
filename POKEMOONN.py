@@ -234,10 +234,13 @@ com.compoketypebelirle()
 com.comekleme()
 
 while player.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
+    f = open ("saldiri_kaydı.txt","a+")
+    f.write (pokemonismi + " vs " + rakip_pokemon + "\r\n")
     print("Your turn!!")
     player.attmove('player', com)
     if checkdead():
         print("You won")
+        f.write ("Your " + pokemonismi + " has won! \r\n")
         break
     if com.health >0:
         print("Opponent's turn...")
@@ -246,8 +249,7 @@ while player.health >0 or com.health >0:          #checkstatus u saldırının i
         sleep(2)
         if checkdead():
             print("You die")
-            break
-
+        
 
 sleep(10)
 
