@@ -273,9 +273,7 @@ def battle():
                 break
 
         
-
     sleep(10)
-
 
 
 
