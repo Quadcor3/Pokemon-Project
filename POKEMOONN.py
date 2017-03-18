@@ -131,6 +131,8 @@ class player():
                 else:
                     print("There is no such move!")
             break
+
+
     def comadd(self):
         for i in range(1, 5):
             while True:
@@ -251,7 +253,7 @@ while user.health >0 or com.health >0:          #checkstatus u saldırının ici
     f.write ("Your " + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
 
     save_poke = open("save.txt","a+")
-    save_poke.write (pokemonismi + " " + user.poketype + " " + str(user.saldiri))
+    save_poke.write (pokemonismi + user.poketype + str(user.saldiri))
 
     print("Your turn! \n")
     user.attmove('user', com)
