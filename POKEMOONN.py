@@ -236,13 +236,13 @@ com=player(enemy_pokemon)
 com.com_type_pokemon()
 com.comadd()
 
-while player.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
+while user.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
 
     f = open ("saldiri_kaydi.txt","a+")
     f.write ("Your" + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
 
     save_poke = open("save.txt","a+")
-    save_poke.write (pokemonismi + movelist)
+    save_poke.write (pokemonismi )
 
     print("Your turn! \n")
     user.attmove('user', com)
