@@ -4,6 +4,7 @@ import saldiri
 import os
 from os import path
 import shutil
+import pokemonpick
 
 block=0
 
