@@ -112,7 +112,7 @@ class player():
             while True:
                 x=str.lower(input("{} icin {}. saldiriyi girin\n".format(self.pokename, i)))
                 if x in saldiri.saldirilar:
-                    if x in self.sadiri:
+                    if x in self.saldiri:
                         print("You can't select the same move.")
                     elif saldiri.saldirilar[x] in self.poketype or saldiri.saldirilar[x] is 'normal':
                         self.saldiri.append(x)
