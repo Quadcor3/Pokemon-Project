@@ -218,12 +218,12 @@ class player():
             print("{} is paralyzed!\nIt can't move!".format(self. pokename))
             block=1
    
-def checkdead():
+def checkdead(self):
     if user.health <=0:
-        print("{} you has been defeated!".format(user.pokename))
+        print("{} you has been defeated!".format(user.pokename))    
         return True
 
-    if com.health <=0:
+    if com.health <=0:  
         print("{} you has been defeated!".format(com.pokename))
         return True
 
@@ -233,7 +233,7 @@ def checkdead():
 #
 #
 #
-#
+
 #
 #
 #---------------------------------------------------------------------
