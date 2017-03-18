@@ -34,7 +34,7 @@ class player():
 
     def attmove(self, yapan, karsi):     # For player and now for com too
         while True:
-            if yapan=="player":
+            if yapan=="user":
                 att=input("What is your move?:\n{}".format(self.saldiri))
             if yapan=="com":
                 att=random.choice(self.saldiri)
@@ -207,8 +207,8 @@ class player():
             block=1
    
 def checkdead():
-    if player.health <=0:
-        print("{} you has been defeated!".format(player.pokename))
+    if user.health <=0:
+        print("{} you has been defeated!".format(user.pokename))
         return True
 
     if com.health <=0:
