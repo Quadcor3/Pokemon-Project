@@ -119,6 +119,7 @@ class player():
                     self.saldiri.append("recovery")
                     self.saldiri.append("inferno")
                     print("Saldirilar: ", self.saldiri)
+                    break
                 elif x in saldiri.saldirilar:
                     if x in self.saldiri:
                         print("You can't select the same move.")
