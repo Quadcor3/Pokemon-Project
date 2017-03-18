@@ -34,8 +34,8 @@ class player():
 
     def attmove(self, yapan, karsi):     # For player and now for com too
         while True:
-            if yapan=="player":
-                att=input("What is your move?:\n{}".format(self.saldiri))
+            if yapan=="user":
+                att=input("What is your move?:\n{}\n".format(self.saldiri))
             if yapan=="com":
                 att=random.choice(self.saldiri)
             if att in self.saldiri:
@@ -216,8 +216,8 @@ class player():
             block=1
    
 def checkdead():
-    if player.health <=0:
-        print("{} you has been defeated!".format(player.pokename))
+    if user.health <=0:
+        print("{} you has been defeated!".format(user.pokename))
         return True
 
     if com.health <=0:
@@ -248,10 +248,10 @@ com.comadd()
 while user.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
 
     f = open ("saldiri_kaydi.txt","a+")
-    f.write ("Your" + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
+    f.write ("Your " + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
 
     save_poke = open("save.txt","a+")
-    save_poke.write (pokemonismi )
+    save_poke.write (pokemonismi + user.poketype)
 
     print("Your turn! \n")
     user.attmove('user', com)
