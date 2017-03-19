@@ -7,7 +7,7 @@ import shutil
 import Battle
 
 class player() :
-
+    global user,com
     #Initial
     def __init__(self, isim, health=1000, typadv=1 ):
         self.health=health
@@ -45,12 +45,16 @@ class player() :
                     self.saldiri.append("recovery")
                     self.saldiri.append("inferno")
                     print("Saldirilar: ", self.saldiri)
+                    moves=open("player_moves.txt" , "a+")
+                    moves.write (str(self.saldiri))
                     break
                 elif x in saldiri.saldirilar:
                     if x in self.saldiri:
                         print("You can't select the same move.")
                     elif saldiri.saldirilar[x] in self.poketype or saldiri.saldirilar[x] is 'normal':
                         self.saldiri.append(x)
+                        moves=open("player_moves.txt" , "a+")
+                        moves.write (str(self.saldiri))
                         break
                     else:
                         print("You can't select that type of move!")
@@ -58,8 +62,7 @@ class player() :
                     print("There is no such move!")
             if x == "debug":
                 break
-        moves=open("player_moves.txt" , "a+")
-        moves.write (str(self.saldiri))
+        
     def comadd(self):
         for i in range(1, 5):
             while True:

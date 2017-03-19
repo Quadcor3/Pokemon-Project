@@ -1,1 +1,0 @@
-Vaporeonwater['bubble', 'dive', 'surf', 'scald']asdfire['ember', 'flamethrower', 'recovery', 'inferno']<zxfire['ember', 'flamethrower', 'recovery', 'inferno']

@@ -9,6 +9,7 @@ import pokemonpick
 block=0
 
 class battle():
+    
     def __init__(self, health, saldiri, status, typadv=1):
         self.battlehealth = pokemonpick.health
         self.saldiri = saldiri
@@ -197,9 +198,11 @@ def battle(user ,com , pokemonismi, enemy_pokemon):
         f = open ("saldiri_kaydi.txt","a+")
         f.write ("Your " + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
 
+        moves = open("player_moves.txt" ,"r+")
+        moves.read
         save_poke = open("save.txt","a+")
-        save_poke.write (pokemonismi + " " + user.poketype + " " + str(user.moves))
-
+        save_poke.write (pokemonismi + " " + user.poketype + " " + str(moves))
+        print(str(moves))
         print("Your turn! \n")
         user.attmove("user", com)
         if checkdead():
