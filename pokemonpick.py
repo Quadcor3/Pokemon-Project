@@ -1,6 +1,12 @@
+import random
+from tools import *
+import saldiri
+import os
+from os import path
+import shutil
+import Battle
 
-
-class player():
+class player() :
 
     #Initial
     def __init__(self, isim, health=1000, typadv=1 ):
@@ -8,7 +14,8 @@ class player():
         self.pokename=isim
         self.saldiri=[]
         self.status=[]
-        print("Player added to battle!")
+        print("Player added!")
+
 
     #Type Declaration
     def player_type_pokemon(self):     
@@ -25,6 +32,7 @@ class player():
         print("Your opponent is a {} type pokemon.".format(self.poketype))
 
     #Adding User and Computer
+
     def add(self):
         for i in range(1, 5):
             while True:
@@ -50,6 +58,8 @@ class player():
                     print("There is no such move!")
             if x == "debug":
                 break
+        moves=open("player_moves.txt" , "a+")
+        moves.write (str(self.saldiri))
     def comadd(self):
         for i in range(1, 5):
             while True:
@@ -57,3 +67,16 @@ class player():
                 if k not in self.saldiri and saldiri.saldirilar[k] in self.poketype or saldiri.saldirilar[k] is 'normal':
                     self.saldiri.append(k)
                     break
+
+                
+                #Beginning
+
+pokemonismi=input("What is your Pokemon's nickname? \n")
+user=player(pokemonismi)
+user.player_type_pokemon()
+user.add()
+enemy_pokemon=input("Who is your enemy? \n")           
+com=player(enemy_pokemon)
+com.com_type_pokemon()
+com.comadd()
+Battle.battle(user ,com , pokemonismi, enemy_pokemon)

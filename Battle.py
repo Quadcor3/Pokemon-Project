@@ -5,27 +5,26 @@ import os
 from os import path
 import shutil
 import pokemonpick
-print("AMK senin")
 
 block=0
 
 class battle():
-
-
     def __init__(self, health, saldiri, status, typadv=1):
-        self.battlehealth= pokemonpick.health
-        self.saldiri=saldiri
-        self.status=status
-        self.typemod=typadv
+        self.battlehealth = pokemonpick.health
+        self.saldiri = saldiri
+        self.status = status
+        self.typemod = typadv
 
 
     def attmove(self, yapan, karsi):     # For player and now for com too
+        moves = open("player_moves.txt" ,"r")
+        moves = read.moves
         while True:
             if yapan=="user":
-                att=input("What is your move?:\n{}\n".format(self.saldiri))
+                att=input("What is your move?:\n{}\n".format(moves))
             if yapan=="com":
                 att=random.choice(self.saldiri)
-            if att in self.saldiri:
+            if att in moves:
                 getattr(saldiri, att)()   #saldiri.(kullanıcı inputu)  yapmaya yarıyo
                 break
             else:
@@ -192,30 +191,22 @@ def checkdead(self):
 #
 #---------------------------------------------------------------------
 
-def battle():
-    pokemonismi=input("What is your Pokemon's nickname? \n")
-    user=player(pokemonismi)
-    user.player_type_pokemon()
-    user.add()
-    enemy_pokemon=input("Who is your enemy? \n")                #aldigi tipe gore onceden belirlenmis isimler alabilir
-    com=player(enemy_pokemon)
-    com.com_type_pokemon()
-    com.comadd()
-
+def battle(user ,com , pokemonismi, enemy_pokemon):
     while user.health >0 or com.health >0:          #checkstatus u saldırının icine saldırıdan hemen önceye koydum
 
         f = open ("saldiri_kaydi.txt","a+")
         f.write ("Your " + pokemonismi + " has fought against " + enemy_pokemon + ".\r\n")
 
         save_poke = open("save.txt","a+")
-        save_poke.write (pokemonismi + user.poketype + str(user.saldiri))
+        save_poke.write (pokemonismi + " " + user.poketype + " " + str(user.moves))
 
         print("Your turn! \n")
-        user.attmove('user', com)
+        user.attmove("user", com)
         if checkdead():
             print("You won!")
             f.write ("Your " + pokemonismi + " has won! \r\n")
             break
+
         if com.health >0:
             print("Opponent's turn! \n")
             waitdot(2)
@@ -225,9 +216,6 @@ def battle():
                 print("You lost...")   
                 f.write ("Your " + pokemonismi + " has lost... \r\n")
                 break
-
-battle()
-sleep(10)
 
 
 
